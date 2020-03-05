@@ -25,7 +25,7 @@
 
 			event.dataTransfer.setData("text/plain", this.id);
 
-	
+
   }
 
 
@@ -51,6 +51,10 @@
 			event.preventDefault();
 		}
 
+
+		//function resetPuzzlePiecies() {
+
+		
 		// go and get the dragged element's ID frm the data transfer object
 		let currentImage = event.dataTransfer.getData("text/plain");
 
