@@ -21,18 +21,35 @@
 		// debugger;
 	}
   function allowDrag(event) {
-		console.log('started dragging an image')
+			console.log('started dragging an image')
 
-		event.dataTransfer.setData("text/plain", this.id);
+			event.dataTransfer.setData("text/plain", this.id);
+
+	
   }
+
+
 	function allowDragOver(event) {
 		event.preventDefault();
 		console.log('dragged over a drop zones');
 
 	}
+
+
+
 	function allowDrop(event) {
 		// event.preventDefault();
-		console.log('dropped on a drop zone')
+		console.log('dropped on a drop zone');
+
+		let firstDrop = event.target;
+		  while (firstDrop !== 0 && !firstDrop.classList.contains("drop-zone")) {
+				firstDrop = firstDrop.parentNode;
+			}
+
+		if (firstDrop && firstDrop.childNodes.length > 0) {
+			return false;
+			event.preventDefault();
+		}
 
 		// go and get the dragged element's ID frm the data transfer object
 		let currentImage = event.dataTransfer.getData("text/plain");
